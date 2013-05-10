@@ -16,12 +16,14 @@ License:    Apache License, Version 2.0
 URL:        http://github.com/nemomobile/voicecall
 Source0:    %{name}-%{version}.tar.gz
 Source100:  voicecall-qt5.yaml
+BuildRequires:  pkgconfig(Qt5OpenGL)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Multimedia)
 BuildRequires:  pkgconfig(libresourceqt5)
 BuildRequires:  pkgconfig(libpulse-mainloop-glib)
-BuildRequires:  pkgconfig(ofono-qt5)
+BuildRequires:  pkgconfig(ofono-qt)
 BuildRequires:  pkgconfig(TelepathyQt4) >= 0.9.3
 BuildRequires:  pkgconfig(TelepathyQt4Farstream)
 BuildRequires:  pkgconfig(ngf-qt5)
@@ -112,6 +114,7 @@ Voicecall manager plugin for direct pulseaudio audio routing and stream control.
 # >> build pre
 # << build pre
 
+%qmake5 
 
 make %{?jobs:-j%jobs}
 
@@ -122,7 +125,7 @@ make %{?jobs:-j%jobs}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%make_install
+%qmake_install
 
 # >> install post
 # << install post

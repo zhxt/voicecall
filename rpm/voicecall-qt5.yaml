@@ -10,17 +10,19 @@ Sources:
 Description: Next Generation Dialer Application for Nemo Mobile
 
 PkgConfigBR:
+    - Qt5OpenGL
     - Qt5Quick
     - Qt5Qml
+    - Qt5DBus
     - Qt5Multimedia
     - libresourceqt5
     - libpulse-mainloop-glib
-    - ofono-qt5
+    - ofono-qt
     - TelepathyQt4 >= 0.9.3
     - TelepathyQt4Farstream
     - ngf-qt5
 Configure: none
-Builder: make
+Builder: qmake5
 
 SubPackages:
     - Name: core
